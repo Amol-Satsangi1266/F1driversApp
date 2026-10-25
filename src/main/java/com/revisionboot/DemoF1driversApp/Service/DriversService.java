@@ -17,25 +17,25 @@ public class DriversService {
         this.repository = repository;
     }
 
-    @Transactional(readOnly = true)
+
     public List<Drivers> getAllDrivers() {
         return repository.findAll();
     }
 
-    @Transactional(readOnly = true)
+
     public Drivers getDriverById(Long id) {
         return repository.findById(id)
                 .orElseThrow(() ->
                         new IllegalArgumentException("Driver not found with ID: " + id));
     }
 
-    @Transactional
+
     public Drivers createDriver(String name, BigDecimal worth) {
         Drivers driver = new Drivers(name, worth);
         return repository.save(driver);
     }
 
-    @Transactional
+
     public Drivers updateDriver(Long id, String name, BigDecimal worth) {
         Drivers driver = getDriverById(id);
         driver.setName(name);
@@ -43,7 +43,7 @@ public class DriversService {
         return repository.save(driver);
     }
 
-    @Transactional
+
     public void deleteDriver(Long id) {
         Drivers driver = getDriverById(id);
         repository.delete(driver);

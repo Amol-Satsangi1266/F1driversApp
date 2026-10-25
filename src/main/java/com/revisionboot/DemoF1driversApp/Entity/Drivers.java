@@ -1,13 +1,17 @@
 package com.revisionboot.DemoF1driversApp.Entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "drivers")
 @Data
+@NoArgsConstructor  // <--- Required by JPA / Hibernate for GET requests
+@AllArgsConstructor
 public class Drivers {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

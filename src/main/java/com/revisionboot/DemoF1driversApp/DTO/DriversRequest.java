@@ -7,12 +7,13 @@ import jakarta.validation.constraints.Size;
 
 import java.math.BigDecimal;
 
-public class DriversRequest {
-    @NotBlank
-    @Size(max = 120)
-    String name;
+public record DriversRequest(
+        @NotBlank
+        @Size(max = 120)
+        String name,
 
-    @NotNull
-    @DecimalMin(value = "0.01")
-    BigDecimal worth;
+        @NotNull
+        @DecimalMin(value = "0.01")
+        BigDecimal worth
+) {
 }
