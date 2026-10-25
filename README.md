@@ -14,8 +14,8 @@ A prototype backend mindmap and simulation engine for Formula 1 teams. This appl
 ## Tech Stack
 
 * **IDE:** IntelliJ IDEA
-* **Language:** Java / Kotlin / Python / Node.js (Prototype Ecosystem)
-* **Database:** In-Memory / Local Prototype Storage
+* **Language:** Java (Spring Framework)
+* **Database:** PostgresSQL
 
 ## Getting Started
 
