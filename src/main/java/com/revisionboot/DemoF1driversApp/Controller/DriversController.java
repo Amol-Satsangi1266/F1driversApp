@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/drivers") // Changed from /api/products to match domain
+@RequestMapping("/api/drivers")
 public class DriversController {
 
     private final DriversService service;
