@@ -12,6 +12,8 @@ public record DriversRequest(
         @Size(max = 120)
         String name,
 
+
+
         @NotNull
         @DecimalMin(value = "0.01")
         BigDecimal worth
