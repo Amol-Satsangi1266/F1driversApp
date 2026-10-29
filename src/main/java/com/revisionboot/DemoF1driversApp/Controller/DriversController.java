@@ -7,6 +7,7 @@ import com.revisionboot.DemoF1driversApp.Service.DriversService;
 import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -61,5 +62,11 @@ public class DriversController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
         service.deleteDriver(id);
+    }
+
+    @GetMapping("/csrf")
+    public CsrfToken csrfToken(CsrfToken token)
+    {
+        return token;
     }
 }
