@@ -1,5 +1,7 @@
 package com.revisionboot.DemoF1driversApp.Controller;
 
+import com.revisionboot.DemoF1driversApp.DTO.DriversRegisterRequest;
+import com.revisionboot.DemoF1driversApp.DTO.DriversRegisterResponse;
 import com.revisionboot.DemoF1driversApp.DTO.DriversRequest;
 import com.revisionboot.DemoF1driversApp.DTO.DriversResponse;
 import com.revisionboot.DemoF1driversApp.Entity.Drivers;
@@ -20,16 +22,17 @@ public class DriversController {
         this.service = service;
     }
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public DriversResponse create(
-            @Valid @RequestBody DriversRequest request) {
 
-        Drivers driver = service.createDriver(
-                request.name(), request.worth()
+    @PostMapping("/register")
+    @ResponseStatus(HttpStatus.CREATED)
+    public DriversRegisterResponse register(
+            @Valid @RequestBody DriversRegisterRequest request) {
+
+        Drivers driver = service.registerDriver(
+                request.username(), request.password()
         );
 
-        return DriversResponse.from(driver);
+        return DriversRegisterResponse.from(driver);
     }
 
     @GetMapping

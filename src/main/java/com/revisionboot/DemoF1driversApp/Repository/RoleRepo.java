@@ -8,5 +8,5 @@ import java.util.Optional;
 
 public interface RoleRepo extends JpaRepository<Drivers, Long> {
 
-    Optional<Role> findByName(String name);
+    Optional<Role> findByUsername(String name);
 }

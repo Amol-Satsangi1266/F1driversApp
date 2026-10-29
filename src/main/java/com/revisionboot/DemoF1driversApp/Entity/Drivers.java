@@ -21,7 +21,7 @@ public class Drivers {
     @Column(nullable = false, length = 120, unique = true)
     private String username;
 
-    @Column(nullable = false, precision = 12, scale = 2)
+    @Column(nullable = true)
     private BigDecimal worth;
 
     @Column(nullable = false)
@@ -37,6 +37,11 @@ public class Drivers {
 
     )
     private Set<Role> roles;
+
+    public Drivers(String name, String password) {
+        this.username = name;
+        this.password = password;
+    }
 
     public Drivers(String name, BigDecimal worth) {
         this.username = name;
