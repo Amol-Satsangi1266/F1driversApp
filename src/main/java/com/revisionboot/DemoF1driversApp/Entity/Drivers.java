@@ -23,6 +23,11 @@ public class Drivers {
     @Column(nullable = false, precision = 12, scale = 2)
     private BigDecimal worth;
 
+    @Column(nullable = false)
+    private String password = "";
+
+    private boolean enabled;
+
     public Drivers(String name, BigDecimal worth) {
         this.name = name;
         this.worth = worth;
