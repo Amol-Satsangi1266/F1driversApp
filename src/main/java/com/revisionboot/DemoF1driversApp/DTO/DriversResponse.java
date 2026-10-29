@@ -12,7 +12,7 @@ public record DriversResponse(
     public static DriversResponse from(Drivers driver) {
         return new DriversResponse(
                 driver.getId(),
-                driver.getName(),
+                driver.getUsername(),
                 driver.getWorth()
         );
     }

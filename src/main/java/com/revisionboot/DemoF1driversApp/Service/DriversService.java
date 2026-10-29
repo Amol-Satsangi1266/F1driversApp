@@ -3,7 +3,6 @@ package com.revisionboot.DemoF1driversApp.Service;
 import com.revisionboot.DemoF1driversApp.Entity.Drivers;
 import com.revisionboot.DemoF1driversApp.Repository.DriversRepo;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -38,7 +37,7 @@ public class DriversService {
 
     public Drivers updateDriver(Long id, String name, BigDecimal worth) {
         Drivers driver = getDriverById(id);
-        driver.setName(name);
+        driver.setUsername(name);
         driver.setWorth(worth);
         return repository.save(driver);
     }

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 @Entity
 @Table(name = "drivers")
@@ -17,8 +18,8 @@ public class Drivers {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 120)
-    private String name;
+    @Column(nullable = false, length = 120, unique = true)
+    private String username;
 
     @Column(nullable = false, precision = 12, scale = 2)
     private BigDecimal worth;
@@ -28,8 +29,17 @@ public class Drivers {
 
     private boolean enabled;
 
+    @ManyToMany
+    @JoinTable(
+            name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+
+    )
+    private Set<Role> roles;
+
     public Drivers(String name, BigDecimal worth) {
-        this.name = name;
+        this.username = name;
         this.worth = worth;
     }
 }
